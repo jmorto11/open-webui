@@ -620,9 +620,10 @@ export const removeFormattings = (str: string) => {
 			// Block elements (remove completely)
 			.replace(/(```[\s\S]*?```)/g, '') // Code blocks
 			.replace(/^\|.*\|$/gm, '') // Tables
+			.replace(/(\*)(.*?)\1/g, '') // Italics
 			// Inline elements (preserve content)
 			.replace(/(?:\*\*|__)(.*?)(?:\*\*|__)/g, '$1') // Bold
-			.replace(/(?:[*_])(.*?)(?:[*_])/g, '$1') // Italic
+			// .replace(/(?:[*_])(.*?)(?:[*_])/g, '$1') // Italic
 			.replace(/~~(.*?)~~/g, '$1') // Strikethrough
 			.replace(/`([^`]+)`/g, '$1') // Inline code
 
